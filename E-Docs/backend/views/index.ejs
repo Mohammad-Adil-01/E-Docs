@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>E-Docs</title>
+  </head>
+<body class="min-h-screen bg-gradient-to-br  from-blue-100 to-purple-100">  
+            <span class="text-2xl mx-3 mt-5 ">Create and Download Your Documents Online</span>
+ 
+     <section
+      class="bg-gray-600 mx-3 my-3 p-4 text-white width-full border-5 border-black rounded-lg"
+    >
+      <h1
+        class="text-4xl text-left flex flex-row items-center gap-10"
+        style="font-family: 'Poppins', sans-serif"
+      >
+       Welcome to E-Docs — Just Write and Download
+
+
+      </h1>
+    </section>
+
+    <marquee
+      behavior="scroll"
+      direction="left"
+      scrollamount="10"
+      class="text-lg"
+    >
+      Exclusive Document Creation Platform , Create .Txt File For Free , Save It
+      And Download It Free , its Also Give you to Write A note Online and
+      Download It Free , No Sign Up Required , No Login Required , Just Write
+      and Download Your Docs , <span class="text-red-500">E-Docs .</span>
+    </marquee>
+    
+      <form action="/docs" method="POST">
+        <section
+      class="mx-3 my-3 p-1.5 text-black width-full border-2 border-gray-600 rounded-lg"
+    >
+        <input
+          type="text"
+          name="title"
+          placeholder="Give Title To Your Docs"
+          class="text-2xl border-0 bg-transparent p-2 rounded-lg outline-none pl-3 mb-2"
+         />
+         <hr />
+         <textarea
+         name="docs"
+          placeholder="Write Your Docs Here"
+          class="w-full h-96 text-lg border-0 bg-transparent p-2 rounded-lg outline-none pl-3 mt-1"
+          ></textarea>
+         </section>
+        <button class="mx-3 rounded-lg text-2xl bg-blue-300 p-2 w-96 border-3">Create Docs</button>
+            
+      </form>
+   
+    
+    <section class="mx-3 my-2 p-2 border-3 border-grey-00 rounded-lg ">
+      <h1
+        class="text-2xl text-black-100"
+        style="font-family: Poppins, sans-serif"
+      >
+        Your Docs Will Show Here
+      </h1>
+      <hr class="mt-1 mb-1" />
+      <div class="tasks flex felx-row gap-10 flex-wrap my-5">
+        <% if(files.length>0){%>
+        <% files.forEach((task)=>{  %>
+        <div class="task  p-2 w-75 border-2 border-gray-500 rounded-lg">
+          <h1><%= task %></h1>
+          <p> <a href="<%=task%>" class="text-blue-400">Read More</a></p>
+          <p><a href="<%=task%>" download class="text-red-400" >Download File</a></p>
+        </div>
+        <%})%>
+        <% } else{ %>
+                <h3 class="mx-3 my-1 text-red-400 text-2xl">No Docs Created Yet</h3>
+        <% } %>
+      </div>
+    </section>
+  </body>
+</html>
