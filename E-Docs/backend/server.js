@@ -18,11 +18,10 @@ app.get('/',(req,res)=>{
  });
 app.post('/docs',(req,res)=>{
     const {title , docs }=req.body;
-    fs.writeFile(`./file/${req.body.title.split('').join('')}.txt`,docs,(err)=>{
+    fs.writeFile(`./file/${req.body.title.split('').join('')}.txt`,`${title}\n\n${docs}`,(err)=>{
         res.redirect('/');
     })
 });
-
 app.listen(3000,()=>{
     console.log("Server is LIstening on Port 3000 - Thank you");
 })
